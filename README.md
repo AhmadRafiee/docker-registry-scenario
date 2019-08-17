@@ -139,5 +139,5 @@ docker push SUB.DOMAIN.TLD/nginx:test
 ## License
 [DockerMe.ir](https://dockerme.ir)
 
-## Ref
+## Reference
 [docker](https://docs.docker.com/registry/recipes/nginx/)

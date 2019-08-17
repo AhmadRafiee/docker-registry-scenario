@@ -124,7 +124,7 @@ docker run -d -p 127.0.0.1:5000:5000 -v ${PWD}/data:/var/lib/registry --net hub 
 docker run -d -p 443:443 -v ${PWD}/auth:/etc/nginx/conf.d -v ${PWD}/auth/nginx.conf:/etc/nginx/nginx.conf:ro \
 --net hub --restart=always --name web nginx:alpine
 ```
-**Step8**: Test running container and login to the registry
+**Step8**: Container running test and login to the registry
 ```bash
 docker ps 
 docker login https://SUB.DOMAIN.TLD -u USER -p PASSWORD

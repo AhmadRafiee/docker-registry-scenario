@@ -167,12 +167,12 @@ volumes:
 docker-compose config 
 ```
 
-**Step3:** run all services with docker-compose commands
+**Step7:** run all services with docker-compose commands
 ```bash
 docker-compose up -d 
 ```
 
-**Step4:** check running services and services logs
+**Step8:** check running services and services logs
 ```bash
 docker-compose ps
 docker-compose logs -f --tail 10

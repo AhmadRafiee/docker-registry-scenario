@@ -135,6 +135,48 @@ docker tag nginx:latest SUB.DOMAIN.TLD/nginx:test
 docker push SUB.DOMAIN.TLD/nginx:test
 ```
 
+## Run with docker-compose command
+**Step5:** create compose file
+```bash
+services:
+  nginx:
+    # Note : Only nginx:alpine supports bcrypt.
+    # If you don't need to use bcrypt, you can use a different tag.
+    # Ref. https://github.com/nginxinc/docker-nginx/issues/29
+    image: "nginx:alpine"
+    ports:
+      - 443:443
+      - 80:80
+    depends_on:
+      - registry
+    volumes:
+      - ./auth:/etc/nginx/conf.d
+      - ./auth/nginx.conf:/etc/nginx/nginx.conf:ro
+  
+  registry:
+    image: registry:2
+    volumes:
+      - registry_data:/var/lib/registry
+
+
+volumes:
+  registry_data:
+```
+**Step6:** check compose file syntax
+```bash
+docker-compose config 
+```
+
+**Step3:** run all services with docker-compose commands
+```bash
+docker-compose up -d 
+```
+
+**Step4:** check running services and services logs
+```bash
+docker-compose ps
+docker-compose logs -f --tail 10
+```
 
 ## License
 [DockerMe.ir](https://dockerme.ir)
